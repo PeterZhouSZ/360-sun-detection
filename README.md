@@ -23,6 +23,7 @@ python SPA.py --data_path <.csv> --sample_rate <sample rate of data, default=10>
 ```
 After processing, it will save the result at **direction** field in ```YOUR_DATA_lightData.csv``` 
 ### IBS ###
+First, you should **download pretrained weights from [This project](https://github.com/CSAILVision/semantic-segmentation-pytorch)** and put it in ```sun_estimate\pre-trained\```.
 ```bash
 python SPA.py --video_path <YOUR_VIDEO>
 ```
