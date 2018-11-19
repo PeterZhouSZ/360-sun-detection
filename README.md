@@ -25,7 +25,7 @@ After processing, it will save the result at **direction** field in ```YOUR_DATA
 ### IBS ###
 First, you should **download pretrained weights from [This project](https://github.com/CSAILVision/semantic-segmentation-pytorch)** and put it in ```sun_estimate\pre-trained\```.
 ```bash
-python SPA.py --video_path <YOUR_VIDEO>
+python IBS.py --video_path <YOUR_VIDEO>
 ```
 The output is same to SPA.
 ### visualize result ###
