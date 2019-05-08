@@ -73,7 +73,7 @@ if __name__ == '__main__':
 	# Path related arguments
 	parser.add_argument('--video_path', required=True)
 	parser.add_argument('--interval', default=30, type=int, help='interval between two key frames')
-	parser.add_argument('--model_path', default='pre-trained',
+	parser.add_argument('--model_path', default='sun_estimate/pre-trained',
 						help='folder to model path')
 	parser.add_argument('--suffix', default='_epoch_20.pth',
 						help="which snapshot to load")

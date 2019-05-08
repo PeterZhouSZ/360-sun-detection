@@ -5,8 +5,7 @@ from skimage import filters
 import math
 import numpy as np
 from matplotlib import pyplot as plt
-sys.path.append('../misc')
-from visual import getImagePos, drawImage
+from misc.visual import getImagePos, drawImage
 
 def Convert2Vector(theta, phi):
 	return np.array([math.cos(math.radians(phi)) * math.sin(math.radians(theta)), math.sin(math.radians(phi)), math.cos(math.radians(phi)) * math.cos(math.radians(theta))])
@@ -48,7 +47,7 @@ def getAngle(width, height, s, t):
 
 def visualAll(img, spa_list, final_sp, mask):
 	for i in range(len(spa_list)):
-		coord = getImagePos(512, 256, spa_list[i][1], spa_list[i][0])
+		coord = getImagePos(spa_list[i][1], spa_list[i][0], width=512, height=256)
 		img = drawImage(img, coord[0], coord[1], (0,255,0))
 	img = drawImage(img, final_sp[0], final_sp[1], (0, 0, 255))
 	m = np.full((mask.shape[0], mask.shape[1], 3), (0, 0, 255))
@@ -105,7 +104,7 @@ def SunDetection_SPA(img, seg, SPA_list, id, EQ):
 	sun_position = None
 	sun_temporal = None
 	for i in range(len(SPA_list)):
-		coord = getImagePos(512, 256, SPA_list[i][1], SPA_list[i][0])
+		coord = getImagePos(SPA_list[i][1], SPA_list[i][0], width=512, height=256)
 		if(sky_seg[int(coord[1]),int(coord[0])] == True):
 			target = Convert2Spherical(512, 256, coord[0], coord[1])
 			tmp = np.dot(EQ, Convert2Vector(target[0], target[1]))
@@ -120,7 +119,7 @@ def SunDetection_SPA(img, seg, SPA_list, id, EQ):
 	#print( '   ' + str(id) + '  :  ' + str(score) + '....')
 	if(max_confidence > -1000.0):
 		visual = visualAll(ori_img, SPA_list, sun_position, light_patches)
-		cv2.imwrite('../../visualize/' + str(id) + '.png', visual)
+		#cv2.imwrite('../../visualize/' + str(id) + '.png', visual)
 	return sun_position, score, sun_temporal
 
 

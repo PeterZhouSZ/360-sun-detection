@@ -1,11 +1,11 @@
 import os
 import json
 import torch
-import lib.utils.data as torchdata
 import cv2
 from torchvision import transforms
 from scipy.misc import imread, imresize
 import numpy as np
+import sun_estimate.lib.utils.data as torchdata
 
 # Round x to the nearest multiple of p and x' >= x
 def round2nearest_multiple(x, p):

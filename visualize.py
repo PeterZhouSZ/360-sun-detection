@@ -45,7 +45,7 @@ def main(args):
 			img = np.array(img, np.uint8)
 
 			pos = pos_list[i]
-			p = getImagePos(1024, 512, pos[0], pos[1])
+			p = getImagePos(pos[0], pos[1])
 			img = drawImage(img, p[0], p[1], (0, 0, 255))		
 			frames.append(img)
 

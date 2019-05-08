@@ -93,7 +93,7 @@ def main(args):
 			#final_sp, confidence, index = SunDetection_SPA(img_list[i].im, cv2.imread('../../semantic/' + str(i) + '_seg.png'), SPA_list, i, equir)
 			is_label = False
 			if(confidence < -1000.0):
-				cv2.imwrite( '../../results/discard/small_sky/' + str(i) + '.png', img_list[i].im)
+				#cv2.imwrite( '../../results/discard/small_sky/' + str(i) + '.png', img_list[i].im)
 			else:
 				if(confidence >= 0.7):
 					is_label = True
@@ -127,7 +127,7 @@ if __name__ == '__main__':
 
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--list_path', required=True)
-	parser.add_argument('--model_path', default='pre-trained',
+	parser.add_argument('--model_path', default='sun_estimate/pre-trained',
 						help='folder to model path')
 	parser.add_argument('--suffix', default='_epoch_20.pth',
 						help="which snapshot to load")

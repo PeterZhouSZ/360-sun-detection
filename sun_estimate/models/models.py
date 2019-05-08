@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import torchvision
-from . import resnet, resnext
-from lib.nn import SynchronizedBatchNorm2d
+from sun_estimate.models import resnet, resnext
+from sun_estimate.lib.nn import SynchronizedBatchNorm2d
 
 
 class SegmentationModuleBase(nn.Module):
@@ -64,7 +64,7 @@ class ModelBuilder():
     def weights_init(self, m):
         classname = m.__class__.__name__
         if classname.find('Conv') != -1:
-            nn.init.kaiming_normal(m.weight.data)
+            nn.init.kaiming_normal_(m.weight.data)
         elif classname.find('BatchNorm') != -1:
             m.weight.data.fill_(1.)
             m.bias.data.fill_(1e-4)

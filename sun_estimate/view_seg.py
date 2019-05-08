@@ -1,8 +1,7 @@
 import argparse
 import sys
-from PSP import *
-sys.path.append('../misc')
-from visual import writeVideo
+from sun_estimate.PSP import *
+from misc.visual import writeVideo
 
 def main(args):
 	

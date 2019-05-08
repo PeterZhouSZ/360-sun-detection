@@ -3,6 +3,10 @@ import os
 import datetime
 import argparse
 from distutils.version import LooseVersion
+import cv2
+from scipy.misc import imread, imresize
+import math
+import csv
 # Numerical libs
 import numpy as np
 import torch
@@ -10,17 +14,13 @@ import torch.nn as nn
 from torch.autograd import Variable
 from scipy.io import loadmat
 # Our libs
-from dataset import TestDataset
-from models import ModelBuilder, SegmentationModule
-from utils import colorEncode
-from lib.nn import user_scattered_collate, async_copy_to
-from lib.utils import as_numpy, mark_volatile
-import lib.utils.data as torchdata
-import cv2
-from scipy.misc import imread, imresize
-import math
-import csv
-from light_detect import SunDetection_seg
+from sun_estimate.dataset import TestDataset
+from sun_estimate.models import ModelBuilder, SegmentationModule
+from sun_estimate.utils import colorEncode
+from sun_estimate.lib.nn import user_scattered_collate, async_copy_to
+from sun_estimate.lib.utils import as_numpy, mark_volatile
+import sun_estimate.lib.utils.data as torchdata
+from sun_estimate.light_detect import SunDetection_seg
 import progressbar
 
 
@@ -56,7 +56,7 @@ def readVideo(interval, fname = ''):
 	return frames
 
 def visualize_result(data, preds, args):
-	colors = loadmat('data/color150.mat')['colors']
+	colors = loadmat('sun_estimate/data/color150.mat')['colors']
 	# prediction
 	pred_color = colorEncode(preds, colors)
 	return pred_color.astype(np.uint8)
