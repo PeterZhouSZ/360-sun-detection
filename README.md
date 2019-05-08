@@ -23,7 +23,7 @@ python SPA.py --data_path <.csv> --sample_rate <sample rate of data, default=10>
 ```
 After processing, it will save the result at **direction** field in ```YOUR_DATA_lightData.csv``` 
 ### IBS ###
-First, you should **download pretrained weights from [This project](https://github.com/CSAILVision/semantic-segmentation-pytorch)** and put it in ```sun_estimate\pre-trained\```.
+First, you should **download pretrained weights (baseline weights <resnet50dilated-ppm_deepsup>) from [This project](https://github.com/CSAILVision/semantic-segmentation-pytorch)** and put in ```sun_estimate\pre-trained\``` (there are two ```.pth``` files, ```encoder_epoch_20.pth``` and ```decoder_epoch_20.pth```).
 ```bash
 python IBS.py --video_path <YOUR_VIDEO>
 ```
