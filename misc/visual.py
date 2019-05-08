@@ -4,7 +4,7 @@
 import numpy as np
 import cv2
 
-def getImagePos(width=1024, height=512, i, j): 
+def getImagePos(i, j, width=1024, height=512): 
 	'''
 	UE4 vector (y and z) to image position
 	i : y
