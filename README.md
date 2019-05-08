@@ -13,7 +13,7 @@ which is presented at the **poster session** of [SIGGRAPH Asia 2018](https://sa2
 ![image](teaser/pic_1.png)  
 
 ## Quick start ##
-Both SPA and IBS will save the output(SP) using 3D vector (in y and z), but the coordinate is specificly used on Unreal Engine 4. If you want to obtain the 2D position on image, the function **[x, y] = getImagePos(width, height, y, z)** in ```misc\visual.py``` can help you to get it.
+Both SPA and IBS will save the output(SP) using 3D vector (in y and z), but the coordinate is specificly used on Unreal Engine 4. If you want to obtain the 2D position on image, the function **[x, y] = getImagePos(y, z, width=IMAGE_WIDTH, height=IMAGE_HEIGHT)** in ```misc\visual.py``` can help you to get it.
 
 ### SPA ###
 To use the SPA algorithm, we need several data, includes GPS, bearing and timestamp.  
